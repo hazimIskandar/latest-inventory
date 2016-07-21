@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nama Bahan:</strong>
   <%= @material.name %>
 </p>
 
@@ -11,19 +11,17 @@
 </p>
 
 <p>
-  <strong>Minimum stock:</strong>
+  <strong>Minimum Kuantit:</strong>
   <%= @material.minimum_stock %>
 </p>
 
 <p>
-  <strong>Current stock:</strong>
+  <strong>Kuantiti Semasa:</strong>
   <%= @material.current_stock %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @material.user %>
-</p>
 
 <%= link_to 'Edit', edit_material_path(@material) %> |
-<%= link_to 'Back', dashboard_index_path %>
+<%= link_to 'Back', dashboard_index_path %> |
+<%= link_to 'Destroy', @material, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= render 'raw_transactions/index'%>

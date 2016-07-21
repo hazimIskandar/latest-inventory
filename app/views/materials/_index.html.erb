@@ -1,35 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Materials</h1>
+<h1>Bahan Mentah</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nama Bahan</th>
+      <th>Kuantiti Semasa</th>
       <th>Unit</th>
-      <th>Minimum stock</th>
-      <th>Current stock</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th align="center">Tunjuk</th>
+      <th align="center">Masuk</th>
+      <th align="center">Keluar</th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @materials.each do |material| %>
-      <tr>
-        <td><%= material.name %></td>
-        <td><%= material.unit %></td>
-        <td><%= material.minimum_stock %></td>
-        <td><%= material.current_stock %></td>
-        <td><%= material.user %></td>
-        <td><%= link_to 'Show', material %></td>
-        <td><%= link_to 'Edit', edit_material_path(material) %></td>
-        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% if material.current_stock < material.minimum_stock%>
+        <tr class="danger">'
+      <% else %>
+        <tr>
+       <% end %>
+          <td><%= material.name %></td>
+          <td><%= material.current_stock %></td>
+          <td><%= material.unit %></td>
+          
+          <td align="center">
+            <%= link_to material do %>
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to new_material_raw_transaction_path(material) do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to kurang_material_raw_transactions_path(material) do %>
+              <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          
+          
+       
+        </tr>
+
+    <%end%>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Material', new_material_path %>
+<%= link_to new_material_path do%>
+  <button class="btn btn-primary">Tambah Bahan Mentah</button>
+<% end %>

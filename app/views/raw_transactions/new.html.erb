@@ -1,0 +1,6 @@
+<h1>Transaksi Baru</h1>
+<h3>Nama Bahan: <%= @material.name%></h3>
+<h4>Kuantiti Semasa: <%= @material.current_stock%></h4>
+<%= render 'form' %>
+
+<%= link_to 'Kembali', material_path(@material) %>

@@ -1,6 +1,23 @@
-<h1>Editing Material</h1>
+<h1>Edit Bahan Mentah</h1>
 
-<%= render 'form' %>
+<%=form_for(@material) do |f|%>
+	<div class="field">
+		<%= f.label :name, 'Nama Bahan' %><br>
+		<%= f.text_field :name%>
+	</div>
+	<div class="field">
+		<%= f.label :unit, 'Unit' %><br>
+		<%= f.text_field :unit%>
+	</div>
+	<div class="field">
+		<%= f.label :minimum_stock, 'Stok Minimum' %><br>
+	<%= f.text_field :minimum_stock%>
+	</div>
+	
+	
+	<%= f.submit "Edit", class: 'btn btn-primary'%>
+
+<% end %>
 
 <%= link_to 'Show', @material %> |
 <%= link_to 'Back', dashboard_index_path %>

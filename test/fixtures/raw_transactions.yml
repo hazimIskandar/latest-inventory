@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  t_date: 2016-07-20
+  t_type: MyString
+  t_quantity: 1
+  t_total_price: 9.99
+  t_price_unit: 9.99
+  t_supplier: MyString
+  material_id: 
+
+two:
+  t_date: 2016-07-20
+  t_type: MyString
+  t_quantity: 1
+  t_total_price: 9.99
+  t_price_unit: 9.99
+  t_supplier: MyString
+  material_id: 

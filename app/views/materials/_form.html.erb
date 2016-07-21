@@ -24,14 +24,40 @@
     <%= f.number_field :minimum_stock %>
   </div>
   <div class="field">
-    <%= f.label :current_stock %><br>
-    <%= f.number_field :current_stock %>
+    <%= f.hidden_field :current_stock, :value => 0 %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+
+  <%= f.fields_for :raw_transactions do |p|%>
+    <div class="field">
+      <%= p.label :t_type, "Jenis Transaksi" %><br>
+      <%= p.radio_button :t_type, 'tambah', :checked => true %>
+      <%= label :t_type_tambah, 'tambah' %>
+      
+    </div>
+    <div class="field">
+      <%= p.label :t_date, "Tarikh Transaksi" %><br>
+      <%= p.date_select :t_date %>
+    </div>
+    
+    
+
+    <div class="field">
+      <%= p.label :t_quantity, "Kuantiti" %><br>
+      <%= p.number_field :t_quantity %>
+    </div>
+
+    <div class="field">
+      <%= p.label :t_total_price, "Total Harga" %><br>
+      <%= p.number_field :t_total_price %>
+    </div>
+
+    <div class="field">
+      <%= p.label :t_supplier, "Pembekal" %><br>
+      <%= p.text_field :t_supplier %>
+    </div>
+  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Hantar", class:"btn btn-primary" %>
   </div>
 <% end %>

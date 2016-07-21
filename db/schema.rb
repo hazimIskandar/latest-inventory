@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720065222) do
+ActiveRecord::Schema.define(version: 20160720124406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20160720065222) do
   end
 
   add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
+
+  create_table "raw_transactions", force: :cascade do |t|
+    t.date     "t_date"
+    t.string   "t_type"
+    t.integer  "t_quantity"
+    t.decimal  "t_total_price"
+    t.decimal  "t_price_unit"
+    t.string   "t_supplier"
+    t.integer  "material_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "raw_transactions", ["material_id"], name: "index_raw_transactions_on_material_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,4 +62,5 @@ ActiveRecord::Schema.define(version: 20160720065222) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "materials", "users"
+  add_foreign_key "raw_transactions", "materials"
 end

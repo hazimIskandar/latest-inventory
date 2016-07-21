@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
 
+  
   get 'dashboard/index'
 
-  resources :materials
+  resources :materials do
+    resources :raw_transactions, except: [:edit] do
+      collection do
+        get :kurang
+      end
+    end
+
+  end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

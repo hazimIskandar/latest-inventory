@@ -1,0 +1,44 @@
+<%= form_for([@material, @raw_transaction]) do |f| %>
+  <% if @raw_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@raw_transaction.errors.count, "error") %> prohibited this raw_transaction from being saved:</h2>
+
+      <ul>
+      <% @raw_transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :t_date, 'Tarikh Transaksi' %><br>
+    <%= f.date_select :t_date %>
+  </div>
+  <div class="field">
+      <%= f.label :t_type, 'Jenis Transaksi' %><br>
+      <%= f.radio_button :t_type, 'tambah', :checked => true %>
+      <%= label :t_type_tambah, 'tambah' %>
+    </div>
+  <div class="field">
+    <%= f.label :t_quantity, 'Kuantiti' %><br>
+    <%= f.number_field :t_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :t_total_price, 'Jumlah Harga' %><br>
+    <%= f.text_field :t_total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :t_supplier, 'Pembekal' %><br>
+    <%= f.text_field :t_supplier %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :material_id, value: params[:material_id]%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Hantar Transaksi", class: "btn btn-primary" %>
+  </div>
+<% end %>

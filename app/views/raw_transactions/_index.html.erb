@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Senarai Transaksi</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tarikh Transaksi</th>
+      <th>Jenis Transaksi</th>
+      <th>Kuantiti</th>
+      <th>Jumlah Harga</th>
+      <th>Harga Seunit</th>
+      <th>Pembekal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @material.raw_transactions.each do |raw_transaction| %>
+    <%if raw_transaction.t_type === 'kurang'%>      
+      <tr class="info">
+    <%else%>
+      <tr>
+    <%end %>
+     
+        <td><%= raw_transaction.t_date %></td>
+        <td><%= raw_transaction.t_type %></td>
+        <td><%= raw_transaction.t_quantity %></td>
+        <td><%= number_to_currency(raw_transaction.t_total_price, unit:"RM ") %></td>
+        <td><%= number_to_currency(raw_transaction.t_price_unit, unit:"RM ") %></td>
+        <td><%= raw_transaction.t_supplier %></td>
+<!--         <td><%= raw_transaction.material_id %></td>
+ -->        <td><%= link_to 'Show', 
+  material_raw_transaction_path(@material, raw_transaction) %> </td>
+        
+        <td><%= link_to 'Destroy', material_raw_transaction_path(@material, raw_transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Raw transaction', 
+  new_material_raw_transaction_path(@material) %>
+<br>
+
+
