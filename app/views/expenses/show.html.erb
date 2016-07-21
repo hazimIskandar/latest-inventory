@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Kategori:</strong>
+  <%= @expense.e_category %>
+</h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @expense.user %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', dashboard_index_path %>
+<%= link_to 'Destroy', @expenses, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= render 'expense_transactions/index'%>

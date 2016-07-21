@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  e_date: 2016-07-21
+  e_total_price: 9.99
+  e_note: MyText
+  expense_id: 
+
+two:
+  e_date: 2016-07-21
+  e_total_price: 9.99
+  e_note: MyText
+  expense_id: 

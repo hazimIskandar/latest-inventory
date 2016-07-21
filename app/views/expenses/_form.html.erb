@@ -1,0 +1,43 @@
+<%= form_for(@expense) do |f| %>
+  <% if @expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% @expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :e_category, "Kategori" %><br>
+    <%= f.text_field :e_category %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  
+  <%= f.fields_for :expense_transactions do |p|%>
+
+    <div class="field">
+      <%= p.label :e_date, "Tarikh Transaksi" %><br>
+      <%= p.date_select :e_date %>
+    </div>
+
+    <div class="field">
+      <%= p.label :e_total_price, "Jumlah Harga" %><br>
+      <%= p.number_field :e_total_price %>
+    </div>
+    <div class="field">
+      <%= p.label :e_note, "Catatan" %><br>
+      <%= p.text_area :e_note %>
+    </div>
+
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Hantar", class: "btn btn-primary" %>
+  </div>
+<% end %>

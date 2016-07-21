@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Perbelanjaan Lain</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th colspan="3"></th>
+      <th></th><th></th><th></th>
+      <th>Tunjuk</th>
+      <th>Masuk</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.e_category %></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+        <td align="center">
+            <%= link_to expense do %>
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to new_expense_expense_transaction_path(expense) do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_expense_path do%>
+  <button class="btn btn-primary">Tambah Perbelanjaan Lain</button>
+<% end %>

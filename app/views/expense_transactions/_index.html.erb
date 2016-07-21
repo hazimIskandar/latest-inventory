@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Senarai Transaksi <%= @expense.e_category %></h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tarikh Transaksi</th>
+      <th>Total Harga</th>
+      <th>Catatan</th>
+      <th>Expense</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense.expense_transactions.each do |expense_transaction| %>
+      <tr>
+        <td><%= expense_transaction.e_date %></td>
+        <td><%= number_to_currency(expense_transaction.e_total_price, unit: "RM ") %></td>
+        <td><%= expense_transaction.e_note %></td>
+        <td><%= expense_transaction.expense %></td>
+        <td><%= link_to 'Show', expense_expense_transaction_path(@expense, expense_transaction) %></td>
+        <td><%= link_to 'Edit', edit_expense_expense_transaction_path(@expense, expense_transaction) %></td>
+        <td><%= link_to 'Delete', expense_expense_transaction_path(@expense, expense_transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_expense_expense_transaction_path(@expense) do%>
+  <button class="btn btn-primary">Transaksi Baru</button>
+<% end %>

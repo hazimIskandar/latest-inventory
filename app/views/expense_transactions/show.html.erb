@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tarikh Transaksi</strong>
+  <%= @expense_transaction.e_date %>
+</p>
+
+<p>
+  <strong>Jumlah Harga</strong>
+  <%= @expense_transaction.e_total_price %>
+</p>
+
+<p>
+  <strong>Catatan</strong>
+  <%= @expense_transaction.e_note %>
+</p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @expense_transaction.expense %>
+</p>
+
+<%= link_to 'Edit', edit_expense_expense_transaction_path(@expense, @expense_transaction)  %> |
+<%= link_to 'Back', @expense %>

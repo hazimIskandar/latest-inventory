@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
   
+  resources :expenses do
+     resources :expense_transactions
+  end
   get 'dashboard/index'
 
   resources :materials do

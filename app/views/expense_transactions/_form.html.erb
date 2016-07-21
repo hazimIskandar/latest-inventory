@@ -1,0 +1,31 @@
+<%= form_for([@expense, @expense_transaction]) do |f| %>
+  <% if @expense_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense_transaction.errors.count, "error") %> prohibited this expense_transaction from being saved:</h2>
+
+      <ul>
+      <% @expense_transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :e_date, "Tarikh Transaksi" %><br>
+    <%= f.date_select :e_date %>
+  </div>
+  <div class="field">
+    <%= f.label :e_total_price, "Jumlah Harga" %><br>
+    <%= f.text_field :e_total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :e_note, "Catatan" %><br>
+    <%= f.text_area :e_note %>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit "Simpan Perbelanjan Lain Baru", class: "btn btn-primary" %>
+  </div>
+<% end %>

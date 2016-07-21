@@ -3,5 +3,6 @@ class DashboardController < ApplicationController
 
   def index
   	@materials = Material.all
+  	@expenses = Expense.all
   end
 end

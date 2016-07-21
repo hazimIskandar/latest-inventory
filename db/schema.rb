@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720124406) do
+ActiveRecord::Schema.define(version: 20160721122346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expense_transactions", force: :cascade do |t|
+    t.date     "e_date"
+    t.decimal  "e_total_price"
+    t.text     "e_note"
+    t.integer  "expense_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "expense_transactions", ["expense_id"], name: "index_expense_transactions_on_expense_id", using: :btree
+
+  create_table "expenses", force: :cascade do |t|
+    t.string   "e_category"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
   create_table "materials", force: :cascade do |t|
     t.string   "name"
@@ -61,6 +81,8 @@ ActiveRecord::Schema.define(version: 20160720124406) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "expense_transactions", "expenses"
+  add_foreign_key "expenses", "users"
   add_foreign_key "materials", "users"
   add_foreign_key "raw_transactions", "materials"
 end
