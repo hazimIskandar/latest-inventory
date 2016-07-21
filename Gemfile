@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'devise'
 gem 'bootstrap-sass'
-
+gem "chartkick"
+gem 'groupdate'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'

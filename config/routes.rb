@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
   
+  get 'analysis/home'
+
   resources :expenses do
      resources :expense_transactions
   end

@@ -1,7 +1,7 @@
 class RawTransaction < ActiveRecord::Base
   belongs_to :material
   before_save :set_price
-  default_scope -> { order(created_at: :desc) }
+#  default_scope -> { order(created_at: :desc) }
 	after_save :update_current_stock
 	after_destroy :update_delete_stock
 	validates_presence_of :t_quantity, :t_total_price
