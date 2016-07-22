@@ -1,0 +1,44 @@
+<h3>Nama Barang Jualan: <%= @complete.name%></h3>
+<h4>Kuantiti Semasa: <%= @complete.current_stock%></h4>
+<%= form_for([@complete, @complete_transaction]) do |f| %>
+  <% if @complete_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@complete_transaction.errors.count, "error") %> prohibited this complete_transaction from being saved:</h2>
+
+      <ul>
+      <% @complete_transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :f_date, "Tarikh Transaksi" %><br>
+    <%= f.date_select :f_date %>
+  </div>
+  <div class="field">
+      <%= f.label :f_type, 'Jenis Transaksi' %><br>
+      <%= f.radio_button :f_type, 'kurang', :checked => true %>
+      <%= label :f_type_kurang, 'kurang' %>
+  </div>
+  <div class="field">
+    <%= f.label :f_quantity, "Kuantiti" %><br>
+    <%= f.number_field :f_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :f_total_sell, "Jumlah Harga Jualan" %><br>
+    <%= f.text_field :f_total_sell %>
+  </div>
+  <div class="field">
+    <%= f.label :f_buyer, "Pembeli" %><br>
+    <%= f.text_field :f_buyer %>
+  </div>
+  <div class="field">
+    <%= f.label :complete_id %><br>
+    <%= f.text_field :complete_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Simpan Transaksi", class: "btn btn-primary"  %>
+  </div>
+<% end %>

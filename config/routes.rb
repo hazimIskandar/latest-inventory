@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
 
   
+  resources :completes do
+    resources :complete_transactions, except: [:edit] do
+      collection do
+        get :kurang
+      end
+    end  
+  end
   get 'analysis/home'
 
   resources :expenses do

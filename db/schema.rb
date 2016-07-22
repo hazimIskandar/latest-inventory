@@ -11,10 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721122346) do
+ActiveRecord::Schema.define(version: 20160721191629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "complete_transactions", force: :cascade do |t|
+    t.date     "f_date"
+    t.string   "f_type"
+    t.integer  "f_quantity"
+    t.decimal  "f_total_sell"
+    t.decimal  "f_unit_sell"
+    t.string   "f_buyer"
+    t.integer  "complete_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "complete_transactions", ["complete_id"], name: "index_complete_transactions_on_complete_id", using: :btree
+
+  create_table "completes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "unit"
+    t.integer  "minimum_stock"
+    t.integer  "current_stock"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "completes", ["user_id"], name: "index_completes_on_user_id", using: :btree
 
   create_table "expense_transactions", force: :cascade do |t|
     t.date     "e_date"
@@ -81,6 +107,8 @@ ActiveRecord::Schema.define(version: 20160721122346) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "complete_transactions", "completes"
+  add_foreign_key "completes", "users"
   add_foreign_key "expense_transactions", "expenses"
   add_foreign_key "expenses", "users"
   add_foreign_key "materials", "users"

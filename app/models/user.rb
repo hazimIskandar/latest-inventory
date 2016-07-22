@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :materials
   has_many :expenses
+  has_many :completes
 end

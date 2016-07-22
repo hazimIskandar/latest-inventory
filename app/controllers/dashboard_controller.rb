@@ -4,5 +4,6 @@ class DashboardController < ApplicationController
   def index
   	@materials = Material.all
   	@expenses = Expense.all
+  	@completes = Complete.all
   end
 end

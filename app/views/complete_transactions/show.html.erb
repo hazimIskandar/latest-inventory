@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tarikh Transaksi</strong>
+  <%= @complete_transaction.f_date %>
+</p>
+
+<p>
+  <strong>Jenis Transaksi</strong>
+  <%= @complete_transaction.f_type %>
+</p>
+
+<p>
+  <strong>Kuantiti</strong>
+  <%= @complete_transaction.f_quantity %>
+</p>
+
+<p>
+  <strong>Jumlah Harga Jualan</strong>
+  <%= @complete_transaction.f_total_sell %>
+</p>
+
+<p>
+  <strong>Harga Jualan Seunit</strong>
+  <%= @complete_transaction.f_unit_sell %>
+</p>
+
+<p>
+  <strong>Pembeli</strong>
+  <%= @complete_transaction.f_buyer %>
+</p>
+
+<p>
+  <strong>Complete:</strong>
+  <%= @complete_transaction.complete %>
+</p>
+
+<%= link_to 'Kembali', @complete %>

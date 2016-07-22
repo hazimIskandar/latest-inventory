@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  unit: MyString
+  minimum_stock: 1
+  current_stock: 1
+  user_id: 
+
+two:
+  name: MyString
+  unit: MyString
+  minimum_stock: 1
+  current_stock: 1
+  user_id: 

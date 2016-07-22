@@ -1,3 +1,5 @@
+<h3>Nama Bahan: <%= @material.name%></h3>
+<h4>Kuantiti Semasa: <%= @material.current_stock%></h4>
 <%= form_for([@material, @raw_transaction]) do |f| %>
   <% if @raw_transaction.errors.any? %>
     <div id="error_explanation">

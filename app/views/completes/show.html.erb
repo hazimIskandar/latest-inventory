@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @complete.name %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @complete.unit %>
+</p>
+
+<p>
+  <strong>Minimum stock:</strong>
+  <%= @complete.minimum_stock %>
+</p>
+
+<p>
+  <strong>Current stock:</strong>
+  <%= @complete.current_stock %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @complete.user %>
+</p>
+
+<%= link_to 'Edit', edit_complete_path(@complete) %> |
+<%= link_to 'Back', completes_path %> |
+<%= link_to 'Destroy', @complete, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= render 'complete_transactions/index'%>

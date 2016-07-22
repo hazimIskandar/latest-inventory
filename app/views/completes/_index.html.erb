@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Barang Jualan</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nama</th>
+      
+      <th>Kuantiti Semasa</th>
+      <th>Unit</th>
+      <th>Transaksi</th>
+      <th>Masuk</th>
+      <th>Keluar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @completes.each do |complete| %>
+      <%if complete.current_stock < complete.minimum_stock%>
+        <tr class="danger">
+      <%else%>
+        <tr>
+      <%end%>
+        <td><%= complete.name %></td>
+        <td><%= complete.current_stock %></td>
+        <td><%= complete.unit %></td>
+        <td align="center">
+            <%= link_to complete do %>
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to new_complete_complete_transaction_path(complete) do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to kurang_complete_complete_transactions_path(complete) do %>
+              <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+
+            <% end %>
+          </td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_complete_path do%>
+  <button class="btn btn-primary">Tambah Barang Jualan</button>
+<% end %>
