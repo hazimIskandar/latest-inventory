@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
   
+  get 'profits/index'
+
   resources :completes do
     resources :complete_transactions, except: [:edit] do
       collection do

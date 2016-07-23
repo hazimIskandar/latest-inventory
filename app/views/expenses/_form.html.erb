@@ -26,6 +26,11 @@
       <%= p.label :e_date, "Tarikh Transaksi" %><br>
       <%= p.date_select :e_date %>
     </div>
+    <div class="field">
+      <%= p.label :e_type, 'Jenis Transaksi' %><br>
+      <%= p.radio_button :e_type, 'tambah', :checked => true %>
+      <%= label :e_type_tambah, 'tambah' %>
+  </div>
 
     <div class="field">
       <%= p.label :e_total_price, "Jumlah Harga" %><br>

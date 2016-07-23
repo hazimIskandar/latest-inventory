@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721191629) do
+ActiveRecord::Schema.define(version: 20160723140418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160721191629) do
     t.integer  "expense_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "e_type"
   end
 
   add_index "expense_transactions", ["expense_id"], name: "index_expense_transactions_on_expense_id", using: :btree
@@ -73,6 +74,20 @@ ActiveRecord::Schema.define(version: 20160721191629) do
   end
 
   add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
+
+  create_table "profits", force: :cascade do |t|
+    t.date     "p_date"
+    t.decimal  "p_profit"
+    t.integer  "raw_transaction_id"
+    t.integer  "complete_transaction_id"
+    t.integer  "expense_transaction_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "profits", ["complete_transaction_id"], name: "index_profits_on_complete_transaction_id", using: :btree
+  add_index "profits", ["expense_transaction_id"], name: "index_profits_on_expense_transaction_id", using: :btree
+  add_index "profits", ["raw_transaction_id"], name: "index_profits_on_raw_transaction_id", using: :btree
 
   create_table "raw_transactions", force: :cascade do |t|
     t.date     "t_date"
@@ -112,5 +127,8 @@ ActiveRecord::Schema.define(version: 20160721191629) do
   add_foreign_key "expense_transactions", "expenses"
   add_foreign_key "expenses", "users"
   add_foreign_key "materials", "users"
+  add_foreign_key "profits", "complete_transactions"
+  add_foreign_key "profits", "expense_transactions"
+  add_foreign_key "profits", "raw_transactions"
   add_foreign_key "raw_transactions", "materials"
 end

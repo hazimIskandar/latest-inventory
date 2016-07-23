@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Tarikh Transaksi</th>
+      <th>Jenis Transaksi</th>
       <th>Total Harga</th>
       <th>Catatan</th>
       <th>Expense</th>
@@ -17,6 +18,7 @@
     <% @expense.expense_transactions.each do |expense_transaction| %>
       <tr>
         <td><%= expense_transaction.e_date %></td>
+        <td><%= expense_transaction.e_type%></td>
         <td><%= number_to_currency(expense_transaction.e_total_price, unit: "RM ") %></td>
         <td><%= expense_transaction.e_note %></td>
         <td><%= expense_transaction.expense %></td>

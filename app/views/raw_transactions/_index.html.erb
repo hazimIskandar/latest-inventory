@@ -39,8 +39,17 @@
   </tbody>
 </table>
 
-<%= link_to 'New Raw transaction', 
-  new_material_raw_transaction_path(@material) %>
-<br>
+<%= link_to new_material_raw_transaction_path(@material) do%>
+  <button class="btn btn-primary">Transaksi Baru</button>
+<% end %>
+
+<br><br><br>
+
+<%= line_chart @material.raw_transactions.group_by_day(:t_date).sum(:t_quantity, :t_type) %>
+
+<%= @material.current_stock %>
+
+
+
 
 

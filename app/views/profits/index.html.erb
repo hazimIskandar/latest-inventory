@@ -1,0 +1,11 @@
+<h1>Profits#index</h1>
+<p>Find me in app/views/profits/index.html.erb</p>
+<% @profits.each do |profit| %>
+	<p>
+		<%= profit.p_date%>
+		<%= profit.p_profit%>
+	
+	</p>
+<%end%>
+<%= line_chart Profit.group_by_day(:p_date).sum(:p_profit) %>
+
