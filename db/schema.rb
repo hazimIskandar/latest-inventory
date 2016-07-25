@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723140418) do
+ActiveRecord::Schema.define(version: 20160724024132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160723140418) do
     t.integer  "expense_transaction_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.date     "r_date"
+    t.decimal  "r_profit"
   end
 
   add_index "profits", ["complete_transaction_id"], name: "index_profits_on_complete_transaction_id", using: :btree

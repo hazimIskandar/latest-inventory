@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p>
+ -->
 <p>
-  <strong>Name:</strong>
+  <strong>Nama:</strong>
   <%= @complete.name %>
 </p>
 
@@ -11,21 +11,18 @@
 </p>
 
 <p>
-  <strong>Minimum stock:</strong>
+  <strong>Minimum stok:</strong>
   <%= @complete.minimum_stock %>
 </p>
 
 <p>
-  <strong>Current stock:</strong>
+  <strong>Kuantiti Terkini:</strong>
   <%= @complete.current_stock %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @complete.user %>
-</p>
+
 
 <%= link_to 'Edit', edit_complete_path(@complete) %> |
-<%= link_to 'Back', completes_path %> |
+<%= link_to 'Back', dashboard_index_path %> |
 <%= link_to 'Destroy', @complete, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= render 'complete_transactions/index'%>

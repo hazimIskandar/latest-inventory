@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bahan Mentah</h1>
+<h3>Bahan Mentah | <em><%= link_to "analisis", analysis_home_path%></em></h3>
 
 <table class="table">
   <thead>
@@ -22,7 +22,7 @@
       <% else %>
         <tr>
        <% end %>
-          <td><%= material.name %></td>
+          <td><%= link_to material.name, material %></td>
           <td><%= material.current_stock %></td>
           <td><%= material.unit %></td>
           

@@ -35,7 +35,7 @@ class RawTransactionsController < ApplicationController
     @raw_transaction.material_id = @material.id  
     respond_to do |format|
       if @raw_transaction.save
-        format.html { redirect_to @material, notice: 'Raw transaction was successfully created.' }
+        format.html { redirect_to @material, notice: 'Transaksi baru brjaya dimasukkan.' }
         format.json { render :show, status: :created, location: @raw_transaction }
       else
         format.html { render :new }

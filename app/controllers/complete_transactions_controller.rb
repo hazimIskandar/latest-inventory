@@ -32,7 +32,7 @@ class CompleteTransactionsController < ApplicationController
     @complete_transaction.complete_id = @complete.id
     respond_to do |format|
       if @complete_transaction.save
-        format.html { redirect_to @complete, notice: 'Complete transaction was successfully created.' }
+        format.html { redirect_to @complete, notice: 'Transaksi baru berjaya dimasukkan.' }
         format.json { render :show, status: :created, location: @complete_transaction }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CompleteTransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @complete_transaction.update(complete_transaction_params)
-        format.html { redirect_to @complete_transaction, notice: 'Complete transaction was successfully updated.' }
+        format.html { redirect_to @complete_transaction, notice: 'Transaksi berjaya dikemaskini.' }
         format.json { render :show, status: :ok, location: @complete_transaction }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class CompleteTransactionsController < ApplicationController
   def destroy
     @complete_transaction.destroy
     respond_to do |format|
-      format.html { redirect_to @complete, notice: 'Complete transaction was successfully destroyed.' }
+      format.html { redirect_to @complete, notice: 'Transaksi berjaya dipadamkan' }
       format.json { head :no_content }
     end
   end

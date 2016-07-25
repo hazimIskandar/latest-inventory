@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Nama" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :unit %><br>
+    <%= f.label :unit, "Unit e.g: 1kg, 100g, ...." %><br>
     <%= f.text_field :unit %>
   </div>
   <div class="field">
-    <%= f.label :minimum_stock %><br>
+    <%= f.label :minimum_stock, "Minimum Stok" %><br>
     <%= f.number_field :minimum_stock %>
   </div>
   <div class="field">
@@ -47,8 +47,8 @@
     </div>
 
     <div class="field">
-      <%= p.label :t_total_price, "Total Harga" %><br>
-      <%= p.number_field :t_total_price %>
+      <%= p.label :t_price_unit, "Harga Seunit" %><br>
+      <%= p.text_field :t_price_unit %>
     </div>
 
     <div class="field">

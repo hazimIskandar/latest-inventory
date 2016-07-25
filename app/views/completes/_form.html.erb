@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :unit, "Unit" %><br>
+    <%= f.label :unit, "Unit(kilo, gram, ..." %><br>
     <%= f.text_field :unit %>
   </div>
   <div class="field">
@@ -27,10 +27,7 @@
     <%= f.label :minimum_stock %><br>
     <%= f.number_field :minimum_stock %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+
   <%= f.fields_for :complete_transactions do |p|%>
     <div class="field">
       <%= p.label :f_type, "Jenis Transaksi" %><br>

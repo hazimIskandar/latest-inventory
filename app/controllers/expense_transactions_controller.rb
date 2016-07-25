@@ -30,7 +30,7 @@ class ExpenseTransactionsController < ApplicationController
     @expense_transaction.expense_id = @expense.id
     respond_to do |format|
       if @expense_transaction.save
-        format.html { redirect_to @expense, notice: 'Expense transaction was successfully created.' }
+        format.html { redirect_to @expense, notice: 'Transaksi baru berjaya dimasukkan.' }
         format.json { render :show, status: :created, location: @expense_transaction }
       else
         format.html { render :new }

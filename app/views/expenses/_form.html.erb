@@ -13,6 +13,13 @@
 
   <div class="field">
     <%= f.label :e_category, "Kategori" %><br>
+    <%= f.radio_button :e_category, 'Petrol', :checked =>true %>
+    <%= label :e_category, 'Petrol'%><br>
+    <%= f.radio_button :e_category, 'Internet'%>
+    <%= label :e_category, 'Internet'%><br>
+    <%= f.radio_button :e_category, 'Sewa Tapak'%>
+    <%= label :e_category, 'Sewa Tapak'%><br>
+    <%= f.radio_button :e_category, 'Others'%>
     <%= f.text_field :e_category %>
   </div>
   <div class="field">
@@ -33,8 +40,8 @@
   </div>
 
     <div class="field">
-      <%= p.label :e_total_price, "Jumlah Harga" %><br>
-      <%= p.number_field :e_total_price %>
+      <%= p.label :e_total_price, "Jumlah Harga ,RM" %><br>
+      <%= p.text_field :e_total_price %>
     </div>
     <div class="field">
       <%= p.label :e_note, "Catatan" %><br>

@@ -4,11 +4,11 @@ class CompleteTransaction < ActiveRecord::Base
     before_save :set_price
 	after_save :update_current_stock, :set_profit
 	after_destroy :update_delete_stock
-	validates_presence_of :f_quantity, :f_total_sell
+	validates_presence_of :f_quantity, :f_unit_sell
 
 
 	def set_price
-		self.f_unit_sell = self.f_total_sell / self.f_quantity
+		self.f_total_sell = self.f_unit_sell * self.f_quantity
 	end
 	def update_current_stock
 		if f_type === 'tambah'
@@ -33,7 +33,9 @@ class CompleteTransaction < ActiveRecord::Base
 	def set_profit
 		if f_type === 'kurang'
 			profits.create p_date: f_date, 
-				p_profit:  f_total_sell
+				p_profit:  f_total_sell,
+				r_date: f_date,
+				r_profit: f_total_sell
 		end
 	end
 end

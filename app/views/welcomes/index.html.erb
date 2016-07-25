@@ -1,1 +1,116 @@
-This is a welcome page
+<div class="container contentContainer center" id="topdiv">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1 id="white">Inventory Management</h1>
+			<p class="lead">We make it easy for you</p>
+			<%= link_to dashboard_index_path do%>
+				<button class="btn btn-primary">
+					Manage Your Own Dashboard Now
+				</button>
+			<%end%>
+		</div>
+	</div>
+</div>
+<div id="what">
+	<div class="container-fluid center">
+		<div class="row">
+			<h1>What is MyInventori</h1>
+			<p class="lead">MyInventori is a inventory management for stock and sales platform built specially for small business and entrepreneurship. Consist of 3 main component; raw material, finished goods and other expenses</p>
+		</div>
+	</div>	
+</div>
+<div id="why">
+	<div class="container-fluid center">
+		<h1>Why choose us</h1>
+		<div class="row">
+			<div class="col-sm-4">
+				<h2><i class="fa fa-thumbs-up"></i>  Convenient</h2>
+				<p>
+					Organize and keep track of your inventory from the manufacturing process until the finished product.
+				</p>
+			</div>
+			<div class="col-sm-4">
+				<h2><i class="fa bar-chart"></i>Visualisation</h2>
+				<p>
+					We provide the analysis in graphical way which make you easier to make a business decision
+				</p>
+			</div>
+			<div class="col-sm-4">
+				<h2><i class="fa fa-usd"></i>  Payment</h2>
+				<p>
+					No worries. This platform is free and available for all your lifetime.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid center">
+	<h1>Do not hesitate. Register and Manage your inventory now</h1>
+    <%= link_to dashboard_index_path do%>
+    	<button class="btn btn-success">Start</button>
+    <%end%>    
+</div>
+		
+	
+
+
+<div id="testimoni">
+	<div class="container-fluid text-center">
+		<h1>What customers are saying:</h1>
+		<div id="myCarousel" class="carousel slide " data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrapper for slides -->
+	  		<div class="carousel-inner" role="listbox">
+	    		<div class="item active">	
+	      			<h3>"Helps me in keep track of my Inventory"<br><span style="font-style:normal;">Mus Jo, TTS Actor</span></h3>
+
+	    		</div>
+
+	    		<div class="item">
+	    	
+	      			<h3>"good visualization of displaying the profit"<br><span style="font-style:normal;">Hazim, Utp Students</span></h3>
+	    		</div>
+
+	    		<div class="item">
+	      			<h3>"easy to use and user friednly"<br><span style="font-style:normal;">Fasihah, Penang</span></h3>
+	    		</div>
+
+	  		</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+var myCenter = new google.maps.LatLng(4.356077, 100.993887);
+
+function initialize() {
+var mapProp = {
+center:myCenter,
+zoom:16,
+scrollwheel:false,
+draggable:false,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+position:myCenter,
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script>
+	var Landingheight = $(window).height() * 60/100;
+    $(".contentContainer").css("min-height",Landingheight);
+</script>

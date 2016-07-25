@@ -1,3 +1,2 @@
-<%= pie_chart Material.group(:name).count %>
-<%= bar_chart Material.group_by_month(:created_at).sum(:current_stock) %>
-<%= line_chart RawTransaction.group_by_day(:t_date).sum(:t_total_price) %>
+<p>Kuantiti Semasa Bahan Mentah</p>
+<%= bar_chart Material.group(:name).sum(:current_stock), id: "users-chart", width: "500px", height: "200px"  %>

@@ -31,7 +31,7 @@ class CompletesController < ApplicationController
 
     respond_to do |format|
       if @complete.save
-        format.html { redirect_to @complete, notice: 'Complete was successfully created.' }
+        format.html { redirect_to @complete, notice: 'Barang Jualan Baru Berjaya Dimasukkan.' }
         format.json { render :show, status: :created, location: @complete }
       else
         format.html { render :new }

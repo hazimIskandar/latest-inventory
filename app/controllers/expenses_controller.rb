@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = current_user.expenses.all
   end
 
   # GET /expenses/1
@@ -31,7 +31,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to @expense, notice: 'Perbelanjaan lain berjaya dimasukkan.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }
@@ -67,7 +67,7 @@ class ExpensesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
-      @expense = Expense.find(params[:id])
+      @expense = current_user.expenses.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

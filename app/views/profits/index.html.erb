@@ -1,11 +1,8 @@
-<h1>Profits#index</h1>
-<p>Find me in app/views/profits/index.html.erb</p>
-<% @profits.each do |profit| %>
-	<p>
-		<%= profit.p_date%>
-		<%= profit.p_profit%>
-	
-	</p>
-<%end%>
-<%= line_chart Profit.group_by_day(:p_date).sum(:p_profit) %>
+<h3>Untung Bersih Setiap Bulan</h3>
+<%= line_chart Profit.group_by_week(:p_date).sum(:p_profit), xtitle: "Bulan", ytitle: "Untung" %>
+
+<h3>Untung tidak termasuk perbelanjaan Lain</h3>
+<%= line_chart Profit.group_by_week(:r_date).sum(:r_profit), xtitle: "Bulan", ytitle: "Untung"  %>
+
+
 
