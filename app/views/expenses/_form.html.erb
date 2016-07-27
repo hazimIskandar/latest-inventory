@@ -13,19 +13,10 @@
 
   <div class="field">
     <%= f.label :e_category, "Kategori" %><br>
-    <%= f.radio_button :e_category, 'Petrol', :checked =>true %>
-    <%= label :e_category, 'Petrol'%><br>
-    <%= f.radio_button :e_category, 'Internet'%>
-    <%= label :e_category, 'Internet'%><br>
-    <%= f.radio_button :e_category, 'Sewa Tapak'%>
-    <%= label :e_category, 'Sewa Tapak'%><br>
-    <%= f.radio_button :e_category, 'Others'%>
     <%= f.text_field :e_category %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+
+
   
   <%= f.fields_for :expense_transactions do |p|%>
 
@@ -34,9 +25,8 @@
       <%= p.date_select :e_date %>
     </div>
     <div class="field">
-      <%= p.label :e_type, 'Jenis Transaksi' %><br>
-      <%= p.radio_button :e_type, 'tambah', :checked => true %>
-      <%= label :e_type_tambah, 'tambah' %>
+      <%= p.hidden_field :e_type, :value => 'tambah' %>
+      
   </div>
 
     <div class="field">

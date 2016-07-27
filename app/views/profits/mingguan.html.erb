@@ -1,0 +1,6 @@
+<h1>Untung Mingguann</h1>
+<h3>Untung Bersih</h3>
+<%= line_chart Profit.group_by_week(:p_date).sum(:p_profit), xtitle: "Minggu", ytitle: "Untung" %>
+
+<h3>Untung tidak termasuk perbelanjaan Lain</h3>
+<%= line_chart Profit.group_by_week(:r_date).sum(:r_profit), xtitle: "Minggu", ytitle: "Untung"  %>

@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
 
 <h3>Senarai Transaksi Jualan</h3>
-
+<div class="box2"></div>Bahan Kurang
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -18,7 +17,7 @@
   <tbody>
     <% @complete.complete_transactions.each do |complete_transaction| %>
       <% if complete_transaction.f_type === "kurang"%>
-        <tr class="success">
+        <tr class="info">
       <%else%>
         <tr>
       <%end%>
@@ -28,8 +27,8 @@
         <td><%= number_to_currency(complete_transaction.f_total_sell, unit:"RM ") %></td>
         <td><%= number_to_currency(complete_transaction.f_unit_sell, unit: "RM ") %></td>
         <td><%= complete_transaction.f_buyer %></td>
-        <td><%= link_to 'Show', complete_complete_transaction_path(@complete, complete_transaction) %></td>
-        <td><%= link_to 'Destroy', complete_complete_transaction_path(@complete, complete_transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Papar', complete_complete_transaction_path(@complete, complete_transaction) %></td>
+        <td><%= link_to 'Delete', complete_complete_transaction_path(@complete, complete_transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,11 +37,13 @@
 <br>
 
 <%= link_to new_complete_complete_transaction_path(@complete) do%>
-  <button class="btn btn-primary">Transaksi Baru +</button>
+  <button class="btn btn-primary">Tambah Bahan</button>
 <%end%>
 <%= link_to kurang_complete_complete_transactions_path(@complete) do%>
-  <button class="btn btn-info">Transaksi Baru -</button>
+  <button class="btn btn-info">Tolak Bahan</button>
 <%end%>
+
+
 
 
 

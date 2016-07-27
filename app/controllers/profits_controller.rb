@@ -6,6 +6,14 @@ class ProfitsController < ApplicationController
     @profits = Profit.all
 
   end
+  def harian
+    @profits = Profit.all
+
+  end
+  def mingguan
+    @profits = Profit.all
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

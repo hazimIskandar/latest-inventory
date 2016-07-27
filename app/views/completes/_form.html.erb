@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :unit, "Unit(kilo, gram, ..." %><br>
+    <%= f.label :unit, "Jenis Unit(kilo, gram, ...)" %><br>
     <%= f.text_field :unit %>
   </div>
   <div class="field">
@@ -24,7 +24,7 @@
   </div>
   
   <div class="field">
-    <%= f.label :minimum_stock %><br>
+    <%= f.label :minimum_stock, "Minimum stok" %><br>
     <%= f.number_field :minimum_stock %>
   </div>
 
@@ -47,7 +47,7 @@
 
     <div class="field">
       
-      <%= p.hidden_field :f_total_sell, :value => 0 %>
+      <%= p.hidden_field :f_unit_sell, :value => 0 %>
     </div>
 
   <% end %>

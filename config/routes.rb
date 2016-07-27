@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   
   get 'profits/index'
+  get 'profits/harian'
+  get 'profits/mingguan'
 
   resources :completes do
     resources :complete_transactions, except: [:edit] do

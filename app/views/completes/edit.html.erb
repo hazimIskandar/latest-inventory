@@ -1,6 +1,36 @@
-<h1>Editing Complete</h1>
+<h1>Edit <%= @complete.name%></h1>
 
-<%= render 'form' %>
+<%= form_for(@complete) do |f| %>
+  <% if @complete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@complete.errors.count, "error") %> prohibited this complete from being saved:</h2>
+
+      <ul>
+      <% @complete.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Nama Barang Jualan" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :unit, "Unit(kilo, gram, ...)" %><br>
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :current_stock, :value => 0 %>
+  </div>
+  
+
+  <div class="actions">
+    <%= f.submit "Simpan", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @complete %> |
 <%= link_to 'Back', completes_path %>

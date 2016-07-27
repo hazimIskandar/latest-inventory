@@ -8,7 +8,7 @@
       <th>Kategori</th>
       <th colspan="12"></th>
       <th align="center !important">Transaksi</th>
-      <th align="center">Masuk</th>
+      <th align="center">Tambah</th>
 
     </tr>
   </thead>
@@ -16,7 +16,7 @@
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
-        <td><%= expense.e_category %></td>
+        <td><%= link_to expense.e_category,  expense %></td>
         <td></td><td></td><td></td><td></td><td></td><td></td>
         <td></td><td></td><td></td><td></td><td></td><td></td>
         <td align="center">

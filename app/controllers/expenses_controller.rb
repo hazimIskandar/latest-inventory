@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to @expense, notice: 'Perbelanjaan Telah Berjaya Dikemaskini.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_index_path, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to dashboard_index_path, notice: 'Perbelanjaan Telah Berjaya Dipadam.' }
       format.json { head :no_content }
     end
   end

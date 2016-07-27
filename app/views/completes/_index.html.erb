@@ -1,7 +1,8 @@
 <!-- <p id="notice"><%= notice %></p>
  -->
 <hr>
-<h3>Barang Jualan | <em><%= link_to "analisis", analysis_sell_path%></em></h3>
+<h3><%= link_to "Barang Jualan", analysis_sell_path%></h3>
+<div class="box"></div>kuantiti semasa kurang daripada minimum stok
 
 <table class="table">
   <thead>
@@ -11,19 +12,19 @@
       <th>Kuantiti Semasa</th>
       <th>Unit</th>
       <th>Transaksi</th>
-      <th>Masuk</th>
-      <th>Keluar</th>
+      <th>Tambah</th>
+      <th>Tolak</th>
     </tr>
   </thead>
 
   <tbody>
     <% @completes.each do |complete| %>
-      <%if complete.current_stock < complete.minimum_stock%>
+      <%if complete.current_stock <= complete.minimum_stock%>
         <tr class="danger">
       <%else%>
         <tr>
       <%end%>
-        <td><%= complete.name %></td>
+        <td><%= link_to complete.name, complete %></td>
         <td><%= complete.current_stock %></td>
         <td><%= complete.unit %></td>
         <td align="center">

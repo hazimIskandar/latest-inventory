@@ -1,5 +1,6 @@
 
 <h3>Senarai Transaksi</h3>
+<div class="box2"></div>Bahan Kurang
 
 <table class="table table-bordered">
   <thead>
@@ -41,10 +42,10 @@
 </table>
 
 <%= link_to new_material_raw_transaction_path(@material) do%>
-  <button class="btn btn-primary">Transaksi Baru +</button>
+  <button class="btn btn-primary">Tambah Bahan</button>
 <% end %>
 <%= link_to kurang_material_raw_transactions_path(@material) do%>
-  <button class="btn btn-info">Transaksi Baru -</button>
+  <button class="btn btn-info">Tolak Bahan</button>
 <% end %>
 
 

@@ -1,0 +1,6 @@
+<h1>Untung Harian</h1>
+<h3>Untung Bersih</h3>
+<%= line_chart Profit.group_by_day(:p_date).sum(:p_profit), xtitle: "harian", ytitle: "Untung" %>
+
+<h3>Untung tidak termasuk perbelanjaan Lain</h3>
+<%= line_chart Profit.group_by_day(:r_date).sum(:r_profit), xtitle: "harian", ytitle: "Untung"  %>

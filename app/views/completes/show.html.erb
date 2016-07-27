@@ -16,13 +16,13 @@
 </p>
 
 <p>
-  <strong>Kuantiti Terkini:</strong>
+  <strong>Kuantiti Semasa:</strong>
   <%= @complete.current_stock %>
 </p>
 
 
 
 <%= link_to 'Edit', edit_complete_path(@complete) %> |
-<%= link_to 'Back', dashboard_index_path %> |
-<%= link_to 'Destroy', @complete, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Kembali', dashboard_index_path %> |
+<%= link_to 'Delete', @complete, method: :delete, data: { confirm: 'Adakah anda pasti?' } %>
 <%= render 'complete_transactions/index'%>
