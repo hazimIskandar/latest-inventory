@@ -22,7 +22,8 @@
     <%= f.text_field :unit %>
   </div>
   <div class="field">
-    <%= f.hidden_field :current_stock, :value => 0 %>
+    <%= f.label :minimum_stock, "Minimum Stok" %><br>
+    <%= f.number_field :minimum_stock %>
   </div>
   
 

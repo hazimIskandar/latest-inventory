@@ -1,15 +1,26 @@
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
-		<%if current_user%>
-			<ul class="nav navbar-nav">
-		    	<li>
-		    		<%= link_to current_user.business_name, root_path, class: "navbar-brand"%>
-		    	</li>
-		    </ul>
-		<%else%>
-			<%= link_to "MyInventori", '#', id: "logo", class: "navbar-brand"%>
+		<!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <%if current_user%>
+				<ul class="nav navbar-nav">
+			    	<li>
+			    		<%= link_to current_user.business_name, root_path, class: "navbar-brand"%>
+			    	</li>
+			    </ul>
+			<%else%>
+				<%= link_to "MyInventori", '#', id: "logo", class: "navbar-brand"%>
 
-		<% end %>
+			<% end %>
+	    </div>
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
 	
 			<ul class="nav navbar-nav navbar-right">
 				<% if current_user %>
@@ -34,6 +45,7 @@
 						<li><%= link_to "Log Masuk", new_user_session_path %></li>
 					<%end%>
 			</ul>
+			</div>
 		</div>
 	</div>
 </nav>
