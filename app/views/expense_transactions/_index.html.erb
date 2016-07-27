@@ -1,7 +1,7 @@
 <!--<p id="notice"><%= notice %></p> -->
 
 <h3>Senarai Transaksi <%= @expense.e_category %> </h3>
-
+<div class="table-responsive">
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -27,7 +27,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to new_expense_expense_transaction_path(@expense) do%>
