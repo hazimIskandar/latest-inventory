@@ -6,14 +6,13 @@
 @import "font-awesome";
 #topdiv{
 	background-image: url("landing-inventory.jpg");
-	width: 100%;
     background-size: cover;
     background-position: center;
     margin:0;
     padding: 100px;
     text-align: center;
     h1{
-    	font-size: 3em;
+    
     	color: $gray-darker;
     }
     p{

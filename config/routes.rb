@@ -2,6 +2,16 @@ Rails.application.routes.draw do
 
 
   
+  get 'tutorials/fnq'
+
+  get 'tutorials/one'
+
+  get 'tutorials/two'
+
+  get 'tutorials/three'
+
+  get 'tutorials/four'
+
   get 'profits/index'
   get 'profits/harian'
   get 'profits/mingguan'
